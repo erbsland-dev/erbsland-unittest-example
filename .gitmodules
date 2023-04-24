@@ -1,0 +1,6 @@
+[submodule "example-lib"]
+	path = example-lib
+	url = https://erbsland-dev@github.com/erbsland-dev/erbsland-unittest-example-lib.git
+[submodule "erbsland-unittest"]
+	path = erbsland-unittest
+	url = https://erbsland-dev@github.com/erbsland-dev/erbsland-unittest.git
