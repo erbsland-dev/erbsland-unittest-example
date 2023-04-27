@@ -59,5 +59,16 @@ public:
         REQUIRE_FALSE(exampleLib.isNamePalindrome());
     }
 
+    TESTED_TARGETS(setName isNamePalindrome)
+    void testIsEvenPalindrome() {
+        auto exampleLib = ExampleLib{};
+        exampleLib.setName("joe");
+        REQUIRE_THROWS(exampleLib.isEvenPalindrome());
+        exampleLib.setName("anna");
+        REQUIRE(exampleLib.isEvenPalindrome());
+        exampleLib.setName("alila");
+        REQUIRE_FALSE(exampleLib.isNamePalindrome());
+    }
+
 };
 

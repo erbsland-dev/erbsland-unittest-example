@@ -30,11 +30,15 @@ public:
     ExampleLib exampleLib{};
 
     auto additionalErrorMessages() -> std::string override {
-        auto text = std::ostringstream{};
-        text << "ExampleLib:\n"
-            << "    getName() = \"" << exampleLib.getName() << "\"\n"
-            << "    getNameLength() = " << exampleLib.getNameLength() << "\n";
-        return text.str();
+        try {
+            auto text = std::ostringstream{};
+            text << "ExampleLib:\n"
+                 << "    getName() = \"" << exampleLib.getName() << "\"\n"
+                 << "    getNameLength() = " << exampleLib.getNameLength() << "\n";
+            return text.str();
+        } catch(...) {
+            return {"Unexpected Exception"};
+        }
     }
 
     void setAndVerifyName(const std::string &name) {

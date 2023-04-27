@@ -34,11 +34,15 @@ public:
     std::string name{};
 
     std::string additionalErrorMessages() override {
-        auto text = std::ostringstream{};
-        text << "result = " << std::boolalpha << result << "\n"
-             << "name = \"" << name << "\"\n"
-             << "expected result = " << std::boolalpha << expectedResult() << "\n";
-        return text.str();
+        try {
+            auto text = std::ostringstream{};
+            text << "result = " << std::boolalpha << result << "\n"
+                 << "name = \"" << name << "\"\n"
+                 << "expected result = " << std::boolalpha << expectedResult() << "\n";
+            return text.str();
+        } catch(...) {
+            return {"Unexpected Exception"};
+        }
     }
 
     [[nodiscard]] auto expectedResult() noexcept -> bool {
